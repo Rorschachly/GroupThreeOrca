@@ -6,7 +6,7 @@ public class Player_Interaction : MonoBehaviour {
 
 
     public GameObject XRRig;
-    public GameObject granny, granny_fish;
+    public GameObject granny;
     public float raycastlength;
     [SerializeField] LayerMask mylayermask;
     bool isstop = false, isforward = true;
