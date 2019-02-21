@@ -9,6 +9,8 @@ public class Player_Interaction : MonoBehaviour {
     public GameObject granny, box;
     public float raycastlength;
     [SerializeField] LayerMask mylayermask;
+
+    float change = 0.0f;
     // Use this for initialization
     void Start () {
         Vector3 granny_pos = new Vector3(granny.transform.position.x, XRRig.transform.position.y,
@@ -52,6 +54,11 @@ public class Player_Interaction : MonoBehaviour {
             granny.GetComponent<Granny_Behavior>().LookAway();
             granny.GetComponent<Granny_Behavior>().GoFish();
         }
+        Transform start = granny.transform;
+        Transform end = start;
+
+        if (Input.GetKeyDown(KeyCode.R))
+            end.eulerAngles = new Vector3(0f, -128f, 0f);
 
         if (Input.GetKeyDown(KeyCode.G))
         {
