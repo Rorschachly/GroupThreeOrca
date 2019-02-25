@@ -1,14 +1,17 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class Player_GazeInteraction : MonoBehaviour {
 
-    public event Action<RaycastHit> OnRaycasthit;                   // This event is called every frame that the user's gaze is over a collider.
+
+public class Player_GazeInteraction : MonoBehaviour {
 
     [SerializeField] private Transform m_Camera;
     [SerializeField] private LayerMask m_IntercatibleLayers;           // Layers to exclude from the raycast.
     [SerializeField] private float m_RayLength = 500f;                  // How far into the scene the ray is cast.
     [SerializeField] private Transform granny;
+   
     bool haslooked = false, isRotate = false;
     private VRInteractiveItem m_CurrentInteractible;                //The current interactive item
     private VRInteractiveItem m_LastInteractible;                   //The last interactive item
@@ -53,14 +56,12 @@ public class Player_GazeInteraction : MonoBehaviour {
         if (Physics.Raycast(ray, out hit, m_RayLength, m_IntercatibleLayers.value))
         {
             VRInteractiveItem interactible = hit.collider.GetComponent<VRInteractiveItem>(); //attempt to get the VRInteractiveItem on the hit object
-            Debug.Log(hit.collider.name);
             m_CurrentInteractible = interactible;
 
             if (hit.collider.name == granny.name)
             {
                 if (!haslooked)
                 {
-                    Debug.Log("here");
                     haslooked = true;
                     isRotate = true;
                     hit.collider.GetComponent<Granny_Behavior>().SwimOver(m_Camera);
