@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player_Interaction : MonoBehaviour {
+public class Player_Interaction : MonoBehaviour
+{
 
 
     public GameObject XRRig;
@@ -12,9 +13,10 @@ public class Player_Interaction : MonoBehaviour {
     bool isrotate = false;
     static float game_starttime;
     float counterTime, interimTime, postime;
-    bool isLookAt = true, isFish = false, fisheaten = false, fishLost = false, nudgeFish = false, ispos=false;
+    bool isLookAt = true, isFish = false, fisheaten = false, fishLost = false, nudgeFish = false, ispos = false;
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         interimTime = 2.18f;
         game_starttime = Time.time;
         counterTime = 0.0f;
@@ -22,7 +24,8 @@ public class Player_Interaction : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update () {
+    void Update()
+    {
 
         counterTime += Time.deltaTime;
         Debug.Log(counterTime);
@@ -70,7 +73,7 @@ public class Player_Interaction : MonoBehaviour {
         {
             isrotate = true;
         }
-            if (isrotate)
+        if (isrotate)
         {
             Vector3 relpos = XRRig.transform.position - granny.transform.position;
             Quaternion rot = Quaternion.LookRotation(relpos);

@@ -71,49 +71,58 @@
     <Compile Include="Assets\Scripts\Interactor.cs" />
     <Compile Include="Assets\Scripts\LookOver.cs" />
     <Compile Include="Assets\Scripts\MouseLook.cs" />
+    <Compile Include="Assets\Scripts\Player_GazeInteraction.cs" />
     <Compile Include="Assets\Scripts\Player_Interaction.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\Rotator.cs" />
+    <Compile Include="Assets\Scripts\Scripts\ExampleInteractiveItem.cs" />
+    <Compile Include="Assets\Scripts\Scripts\Reticle.cs" />
+    <Compile Include="Assets\Scripts\Scripts\VRDeviceManager.cs" />
+    <Compile Include="Assets\Scripts\Scripts\VREyeRaycaster.cs" />
+    <Compile Include="Assets\Scripts\Scripts\VRFPSCounter.cs" />
+    <Compile Include="Assets\Scripts\Scripts\VRInput.cs" />
+    <Compile Include="Assets\Scripts\Scripts\VRInteractiveItem.cs" />
+    <Compile Include="Assets\Scripts\Scripts\VRTrackingReset.cs" />
     <Compile Include="Assets\Scripts\SetCorrectCameraHeight.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
     <None Include="Assets\Allegorithmic\Plugins\engine_build_info.txt" />
     <None Include="Assets\Shaders\Skybox Shaders\Horizon With Sun Skybox.shader" />
     <None Include="Assets\Allegorithmic\Plugins\EULA.txt" />
     <Reference Include="com.unity.render-pipelines.core.Editor">
-      <HintPath>D:/WORK FOLDER/2019-stuff/490j/GroupThreeOrca/state_unity/Library/ScriptAssemblies/com.unity.render-pipelines.core.Editor.dll</HintPath>
+      <HintPath>Z:/VR_script/GroupThreeOrca/state_unity/Library/ScriptAssemblies/com.unity.render-pipelines.core.Editor.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.render-pipelines.core.Runtime">
-      <HintPath>D:/WORK FOLDER/2019-stuff/490j/GroupThreeOrca/state_unity/Library/ScriptAssemblies/com.unity.render-pipelines.core.Runtime.dll</HintPath>
+      <HintPath>Z:/VR_script/GroupThreeOrca/state_unity/Library/ScriptAssemblies/com.unity.render-pipelines.core.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.StandardEvents">
-      <HintPath>D:/WORK FOLDER/2019-stuff/490j/GroupThreeOrca/state_unity/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+      <HintPath>Z:/VR_script/GroupThreeOrca/state_unity/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>D:/WORK FOLDER/2019-stuff/490j/GroupThreeOrca/state_unity/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>Z:/VR_script/GroupThreeOrca/state_unity/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.render-pipelines.lightweight.Runtime">
-      <HintPath>D:/WORK FOLDER/2019-stuff/490j/GroupThreeOrca/state_unity/Library/ScriptAssemblies/com.unity.render-pipelines.lightweight.Runtime.dll</HintPath>
+      <HintPath>Z:/VR_script/GroupThreeOrca/state_unity/Library/ScriptAssemblies/com.unity.render-pipelines.lightweight.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.render-pipelines.lightweight.Editor">
-      <HintPath>D:/WORK FOLDER/2019-stuff/490j/GroupThreeOrca/state_unity/Library/ScriptAssemblies/com.unity.render-pipelines.lightweight.Editor.dll</HintPath>
+      <HintPath>Z:/VR_script/GroupThreeOrca/state_unity/Library/ScriptAssemblies/com.unity.render-pipelines.lightweight.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>D:/WORK FOLDER/2019-stuff/490j/GroupThreeOrca/state_unity/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>Z:/VR_script/GroupThreeOrca/state_unity/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.postprocessing.Editor">
-      <HintPath>D:/WORK FOLDER/2019-stuff/490j/GroupThreeOrca/state_unity/Library/ScriptAssemblies/com.unity.postprocessing.Editor.dll</HintPath>
+      <HintPath>Z:/VR_script/GroupThreeOrca/state_unity/Library/ScriptAssemblies/com.unity.postprocessing.Editor.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.postprocessing.Runtime">
-      <HintPath>D:/WORK FOLDER/2019-stuff/490j/GroupThreeOrca/state_unity/Library/ScriptAssemblies/com.unity.postprocessing.Runtime.dll</HintPath>
+      <HintPath>Z:/VR_script/GroupThreeOrca/state_unity/Library/ScriptAssemblies/com.unity.postprocessing.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.ShaderGraph.Editor">
-      <HintPath>D:/WORK FOLDER/2019-stuff/490j/GroupThreeOrca/state_unity/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
+      <HintPath>Z:/VR_script/GroupThreeOrca/state_unity/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>D:/WORK FOLDER/2019-stuff/490j/GroupThreeOrca/state_unity/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>Z:/VR_script/GroupThreeOrca/state_unity/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.render-pipelines.core.IncludePaths">
-      <HintPath>D:/WORK FOLDER/2019-stuff/490j/GroupThreeOrca/state_unity/Library/ScriptAssemblies/com.unity.render-pipelines.core.IncludePaths.dll</HintPath>
+      <HintPath>Z:/VR_script/GroupThreeOrca/state_unity/Library/ScriptAssemblies/com.unity.render-pipelines.core.IncludePaths.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.20f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -304,9 +313,6 @@
     <Reference Include="UnityEngine.Networking">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.20f1/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
     </Reference>
-    <Reference Include="Vuforia.UnityExtensions">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.20f1/Editor/Data/PlaybackEngines/VuforiaSupport/Managed/Runtime/Vuforia.UnityExtensions.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEngine.GoogleAudioSpatializer">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.20f1/Editor/Data/UnityExtensions/Unity/UnityGoogleAudioSpatializer/RuntimeEditor/UnityEngine.GoogleAudioSpatializer.dll</HintPath>
     </Reference>
@@ -317,13 +323,13 @@
       <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.20f1/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="Substance.Game">
-      <HintPath>D:/WORK FOLDER/2019-stuff/490j/GroupThreeOrca/state_unity/Assets/Allegorithmic/Plugins/Substance.Game.dll</HintPath>
+      <HintPath>Z:/VR_script/GroupThreeOrca/state_unity/Assets/Allegorithmic/Plugins/Substance.Game.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Analytics">
-      <HintPath>C:/Users/shara/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/UnityEngine.Analytics.dll</HintPath>
+      <HintPath>C:/Users/sharanya/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/UnityEngine.Analytics.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.StandardEvents">
-      <HintPath>C:/Users/shara/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.13/UnityEngine.StandardEvents.dll</HintPath>
+      <HintPath>C:/Users/sharanya/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.13/UnityEngine.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.20f1/Editor/Data/MonoBleedingEdge/lib/mono/unity/mscorlib.dll</HintPath>

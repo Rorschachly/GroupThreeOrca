@@ -12,14 +12,18 @@ public class Granny_Behavior : MonoBehaviour {
     int endloonkHash = Animator.StringToHash("look_end");
     int gofishHash = Animator.StringToHash("fish_trigger");
     int nudge_trigger = Animator.StringToHash("nudge_trigger");
-	void Start () {
+    bool isforward = false;
+    void Start () {
         aniamtor = GetComponent<Animator>();
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {
-            //aniamtor.SetTrigger(fishHash);
-	}
+        //aniamtor.SetTrigger(fishHash);
+
+        if (isforward)
+            transform.Translate(transform.forward * Time.deltaTime, Space.World);
+    }
 
     public void LookAt()
     {
@@ -47,4 +51,14 @@ public class Granny_Behavior : MonoBehaviour {
         aniamtor.SetTrigger(nudge_trigger);
     }
 
+    public void SwimOver(Transform camera)
+    {
+        isforward = true;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log(other.name);
+        isforward = false;
+    }
 }
