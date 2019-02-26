@@ -10,6 +10,15 @@ public class Granny_Behavior : MonoBehaviour
     // Use this for initialization
     public static FishState fish_st = FishState.ALIVE;
 
+    public GameObject theFishModel;
+
+
+    public ParticleSystem grannyBreath;
+
+
+    public AudioSource grannyHunt;
+    public AudioSource grannyCallUser;
+
     Animator aniamtor;
     int fishHash = Animator.StringToHash("give_fish");
     int lookHash = Animator.StringToHash("lookat");
@@ -23,7 +32,10 @@ public class Granny_Behavior : MonoBehaviour
     {
         aniamtor = GetComponent<Animator>();
         interim_time = 3f;
-
+        theFishModel.SetActive(true);
+        grannyHunt.Stop();
+        grannyBreath.Stop();
+        grannyCallUser.Stop();
     }
 
     // Update is called once per frame
@@ -55,6 +67,7 @@ public class Granny_Behavior : MonoBehaviour
     public void LookAway()
     {
         aniamtor.SetTrigger(endloonkHash);
+        grannyCallUser.Play();
         aniamtor.SetBool(lookHash, false);
     }
 
@@ -62,6 +75,7 @@ public class Granny_Behavior : MonoBehaviour
     {
         yield return new WaitForSeconds(interim_time);
         aniamtor.SetTrigger(gofishHash);
+        grannyHunt.Play();
         fish_st = FishState.ALIVE;
     }
 
@@ -69,6 +83,9 @@ public class Granny_Behavior : MonoBehaviour
     {
         givefishCount++;
         yield return new WaitForSeconds(interim_time);
+        grannyBreath.Play();
+
+        theFishModel.SetActive(true);  // to make the fish appear
         if (fish_st == FishState.FLOATING)
             StartCoroutine("NudgeFish");
         if (fish_st == FishState.LOST)
@@ -105,6 +122,7 @@ public class Granny_Behavior : MonoBehaviour
         {
             Debug.Log("colided" + other.name);
             isforward = false;
+            grannyBreath.Play();
             StartCoroutine("GoFish");
         }
     }
