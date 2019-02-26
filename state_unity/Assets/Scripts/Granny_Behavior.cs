@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public enum FishState { ALIVE, FLOATING, LOST, EATEN };
+public enum FishState { CAUGHT, FLOATING, LOST, EATEN };
 public class Granny_Behavior : MonoBehaviour
 {
 
     // Use this for initialization
-    public static FishState fish_st = FishState.ALIVE;
+    public static FishState fish_st = FishState.CAUGHT;
 
     public GameObject theFishModel;
 
@@ -24,18 +24,18 @@ public class Granny_Behavior : MonoBehaviour
 
 
     Animator aniamtor;
-    int fishHash = Animator.StringToHash("give_fish");
-    int lookHash = Animator.StringToHash("lookat");
-    int endloonkHash = Animator.StringToHash("look_end");
-    int gofishHash = Animator.StringToHash("fish_trigger");
-    int nudge_trigger = Animator.StringToHash("nudge_trigger");
+    readonly int fishHash = Animator.StringToHash("give_fish");
+    readonly int lookHash = Animator.StringToHash("lookat");
+    readonly int endloonkHash = Animator.StringToHash("look_end");
+    readonly int gofishHash = Animator.StringToHash("fish_trigger");
+    readonly int nudge_trigger = Animator.StringToHash("nudge_trigger");
     float interim_time;
     bool isforward = false;
     int givefishCount = 0;
     void Start()
     {
         aniamtor = GetComponent<Animator>();
-        interim_time = 3f;
+        interim_time = 4f;
         theFishModel.SetActive(false);
         grannyHunt.Stop();
         grannyBreath.Stop();
@@ -66,8 +66,7 @@ public class Granny_Behavior : MonoBehaviour
         yield return new WaitForSeconds(interim_time + 2f);
         Debug.Log("fish is lost");
         fish_st = FishState.LOST;
-        StartCoroutine("GiveFish");
-
+        StartCoroutine("GoFish");
     }
 
     public void LookAway()
@@ -82,7 +81,7 @@ public class Granny_Behavior : MonoBehaviour
         yield return new WaitForSeconds(interim_time);
         aniamtor.SetTrigger(gofishHash);
         grannyHunt.Play();
-        fish_st = FishState.ALIVE;
+        fish_st = FishState.CAUGHT;
     }
 
     IEnumerator GiveFish()
@@ -110,14 +109,14 @@ public class Granny_Behavior : MonoBehaviour
             StartCoroutine("GoFish");
         if (fish_st == FishState.EATEN)
             Debug.Log("Celebration");
-        if (fish_st == FishState.ALIVE)
+        if (fish_st == FishState.CAUGHT)
             StartCoroutine("GiveFish");
 
         aniamtor.SetTrigger(nudge_trigger);
 
     }
 
-    public void SwimOver(Transform camera)
+    public void SwimOver()
     {
         isforward = true;
     }

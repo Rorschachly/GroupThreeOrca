@@ -17,6 +17,8 @@ public class Give_Fish_Behaviour : StateMachineBehaviour {
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        int fishHash = Animator.StringToHash("give_fish");
+        animator.ResetTrigger(fishHash);
         animator.gameObject.GetComponent<Granny_Behavior>().StartCoroutine("NudgeFish");
     }
 
