@@ -18,6 +18,7 @@ public class Granny_Behavior : MonoBehaviour
 
     public AudioSource grannyHunt;
     public AudioSource grannyCallUser;
+    public AudioSource grannyBubbleSound;
 
     Animator aniamtor;
     int fishHash = Animator.StringToHash("give_fish");
@@ -36,6 +37,7 @@ public class Granny_Behavior : MonoBehaviour
         grannyHunt.Stop();
         grannyBreath.Stop();
         grannyCallUser.Stop();
+        grannyBubbleSound.Stop();
     }
 
     // Update is called once per frame
@@ -84,7 +86,7 @@ public class Granny_Behavior : MonoBehaviour
         givefishCount++;
         yield return new WaitForSeconds(interim_time);
         grannyBreath.Play();
-
+        grannyBubbleSound.Play();
         theFishModel.SetActive(true);  // to make the fish appear
         if (fish_st == FishState.FLOATING)
             StartCoroutine("NudgeFish");
@@ -123,6 +125,7 @@ public class Granny_Behavior : MonoBehaviour
             Debug.Log("colided" + other.name);
             isforward = false;
             grannyBreath.Play();
+            grannyBubbleSound.Play();
             StartCoroutine("GoFish");
         }
     }

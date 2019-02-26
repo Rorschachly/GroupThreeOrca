@@ -12,18 +12,25 @@ public class GrabScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        OVRInput.Update();
+        OVRInput.FixedUpdate();
+        if (Input.GetKey(KeyCode.A))
+        {
+            Debug.Log("Pressed");
+        }
         if (hold)
         {
-            if (Input.GetKey(KeyCode.Tab))
+            Debug.Log("Hold in");
+            if (Input.GetKey(KeyCode.A))
             {
-                this.transform.position = rightHand.transform.position;
+                Debug.Log("Grabbed");
+                //this.transform.position = rightHand.transform.position;
             }
         }
 	}
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("hehe");
         hold = true;
         rightHand = other;
     }
