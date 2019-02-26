@@ -12,31 +12,33 @@ public class GrabScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        OVRInput.Update();
-        OVRInput.FixedUpdate();
-        if (Input.GetKey(KeyCode.A))
-        {
-            Debug.Log("Pressed");
-        }
         if (hold)
         {
-            Debug.Log("Hold in");
-            if (Input.GetKey(KeyCode.A))
-            {
-                Debug.Log("Grabbed");
-                //this.transform.position = rightHand.transform.position;
-            }
+            stickOnToFlipper();
         }
 	}
 
     private void OnTriggerEnter(Collider other)
     {
-        hold = true;
-        rightHand = other;
+        if (other.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("Contact Player from hold");
+            hold = true;
+            rightHand = other;
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        hold = false;
+        if (other.gameObject.CompareTag("Player"))
+        {
+            hold = false;
+            rightHand = other;
+        }
+    }
+
+    private void stickOnToFlipper()
+    {
+        this.transform.position = rightHand.transform.position;
     }
 }

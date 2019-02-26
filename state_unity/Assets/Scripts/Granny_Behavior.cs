@@ -14,11 +14,14 @@ public class Granny_Behavior : MonoBehaviour
 
 
     public ParticleSystem grannyBreath;
-
+    public ParticleSystem fireworks;
 
     public AudioSource grannyHunt;
     public AudioSource grannyCallUser;
     public AudioSource grannyBubbleSound;
+    public AudioSource celebration;
+    public AudioSource chewing;
+
 
     Animator aniamtor;
     int fishHash = Animator.StringToHash("give_fish");
@@ -33,11 +36,12 @@ public class Granny_Behavior : MonoBehaviour
     {
         aniamtor = GetComponent<Animator>();
         interim_time = 3f;
-        theFishModel.SetActive(true);
+        theFishModel.SetActive(false);
         grannyHunt.Stop();
         grannyBreath.Stop();
         grannyCallUser.Stop();
         grannyBubbleSound.Stop();
+        fireworks.Stop();
     }
 
     // Update is called once per frame
@@ -128,5 +132,12 @@ public class Granny_Behavior : MonoBehaviour
             grannyBubbleSound.Play();
             StartCoroutine("GoFish");
         }
+    }
+
+    public void EatenAndCelebration()
+    {
+        theFishModel.SetActive(false);
+        celebration.Play();
+        fireworks.Play();
     }
 }
