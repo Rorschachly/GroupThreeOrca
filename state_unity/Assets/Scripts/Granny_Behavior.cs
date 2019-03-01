@@ -3,27 +3,45 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public enum FishState { ALIVE, FLOATING, LOST, EATEN };
+public enum FishState { CAUGHT, FLOATING, LOST, EATEN };
 public class Granny_Behavior : MonoBehaviour
 {
 
     // Use this for initialization
-    public static FishState fish_st = FishState.ALIVE;
+    public static FishState fish_st = FishState.CAUGHT;
+
+    public GameObject theFishModel;
+
+
+    public ParticleSystem grannyBreath;
+    public ParticleSystem fireworks;
+
+    public AudioSource grannyHunt;
+    public AudioSource grannyCallUser;
+    public AudioSource grannyBubbleSound;
+    public AudioSource celebration;
+    public AudioSource chewing;
+
 
     Animator aniamtor;
-    int fishHash = Animator.StringToHash("give_fish");
-    int lookHash = Animator.StringToHash("lookat");
-    int endloonkHash = Animator.StringToHash("look_end");
-    int gofishHash = Animator.StringToHash("fish_trigger");
-    int nudge_trigger = Animator.StringToHash("nudge_trigger");
+    readonly int fishHash = Animator.StringToHash("give_fish");
+    readonly int lookHash = Animator.StringToHash("lookat");
+    readonly int endloonkHash = Animator.StringToHash("look_end");
+    readonly int gofishHash = Animator.StringToHash("fish_trigger");
+    readonly int nudge_trigger = Animator.StringToHash("nudge_trigger");
     float interim_time;
     bool isforward = false;
     int givefishCount = 0;
     void Start()
     {
         aniamtor = GetComponent<Animator>();
-        interim_time = 3f;
-
+        interim_time = 4f;
+        theFishModel.SetActive(false);
+        grannyHunt.Stop();
+        grannyBreath.Stop();
+        grannyCallUser.Stop();
+        grannyBubbleSound.Stop();
+        fireworks.Stop();
     }
 
     // Update is called once per frame
@@ -48,13 +66,13 @@ public class Granny_Behavior : MonoBehaviour
         yield return new WaitForSeconds(interim_time + 2f);
         Debug.Log("fish is lost");
         fish_st = FishState.LOST;
-        StartCoroutine("GiveFish");
-
+        StartCoroutine("GoFish");
     }
 
     public void LookAway()
     {
         aniamtor.SetTrigger(endloonkHash);
+        grannyCallUser.Play();
         aniamtor.SetBool(lookHash, false);
     }
 
@@ -62,13 +80,17 @@ public class Granny_Behavior : MonoBehaviour
     {
         yield return new WaitForSeconds(interim_time);
         aniamtor.SetTrigger(gofishHash);
-        fish_st = FishState.ALIVE;
+        grannyHunt.Play();
+        fish_st = FishState.CAUGHT;
     }
 
     IEnumerator GiveFish()
     {
         givefishCount++;
         yield return new WaitForSeconds(interim_time);
+        grannyBreath.Play();
+        grannyBubbleSound.Play();
+        theFishModel.SetActive(true);  // to make the fish appear
         if (fish_st == FishState.FLOATING)
             StartCoroutine("NudgeFish");
         if (fish_st == FishState.LOST)
@@ -87,14 +109,14 @@ public class Granny_Behavior : MonoBehaviour
             StartCoroutine("GoFish");
         if (fish_st == FishState.EATEN)
             Debug.Log("Celebration");
-        if (fish_st == FishState.ALIVE)
+        if (fish_st == FishState.CAUGHT)
             StartCoroutine("GiveFish");
 
         aniamtor.SetTrigger(nudge_trigger);
 
     }
 
-    public void SwimOver(Transform camera)
+    public void SwimOver()
     {
         isforward = true;
     }
@@ -105,7 +127,16 @@ public class Granny_Behavior : MonoBehaviour
         {
             Debug.Log("colided" + other.name);
             isforward = false;
+            grannyBreath.Play();
+            grannyBubbleSound.Play();
             StartCoroutine("GoFish");
         }
+    }
+
+    public void EatenAndCelebration()
+    {
+        theFishModel.SetActive(false);
+        celebration.Play();
+        fireworks.Play();
     }
 }

@@ -35,10 +35,6 @@ public class Player_Interaction_KeyBoard : MonoBehaviour
         }
 
         //for testing without oclus
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            isrotate = true;
-        }
 
         if (Input.GetKeyDown(KeyCode.R))
         {

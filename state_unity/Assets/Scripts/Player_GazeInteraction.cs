@@ -64,7 +64,7 @@ public class Player_GazeInteraction : MonoBehaviour {
                 {
                     haslooked = true;
                     isRotate = true;
-                    hit.collider.GetComponent<Granny_Behavior>().SwimOver(m_Camera);
+                    hit.collider.GetComponent<Granny_Behavior>().SwimOver();
                 }
             }
 
