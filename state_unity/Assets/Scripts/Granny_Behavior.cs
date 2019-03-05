@@ -10,7 +10,8 @@ public class Granny_Behavior : MonoBehaviour
     // Use this for initialization
     public static FishState fish_st = FishState.CAUGHT;
 
-    public GameObject theFishModel;
+    public GameObject salmon, roundfish, willfish;
+    public Transform cm;
 
 
     public ParticleSystem grannyBreath;
@@ -24,19 +25,20 @@ public class Granny_Behavior : MonoBehaviour
 
 
     Animator aniamtor;
-    readonly int fishHash = Animator.StringToHash("give_fish");
     readonly int lookHash = Animator.StringToHash("lookat");
     readonly int endloonkHash = Animator.StringToHash("look_end");
     readonly int gofishHash = Animator.StringToHash("fish_trigger");
-    readonly int nudge_trigger = Animator.StringToHash("nudge_trigger");
+    readonly int wave = Animator.StringToHash("sayHi_trigger");
+    readonly int clap_t = Animator.StringToHash("clap_trigger");
+    readonly int  eat_t = Animator.StringToHash("eat_fish_trigger");
+    readonly int nudge_again = Animator.StringToHash("nudge_fish_trigger");
     float interim_time;
-    bool isforward = false;
+    bool isforward = false, checkfish = false;
     int givefishCount = 0;
     void Start()
     {
         aniamtor = GetComponent<Animator>();
         interim_time = 4f;
-        theFishModel.SetActive(false);
         grannyHunt.Stop();
         grannyBreath.Stop();
         grannyCallUser.Stop();
@@ -48,17 +50,37 @@ public class Granny_Behavior : MonoBehaviour
     void Update()
     {
         if (isforward)
-            transform.Translate(transform.forward * Time.deltaTime, Space.World);
-
-        if (givefishCount > 5)
         {
-            Application.Quit();
+            transform.position = Vector3.Lerp(transform.position, cm.position, Time.deltaTime*0.25f);
+            if (transform.position == cm.position)
+                isforward = false;
         }
+
+        if(checkfish)
+        {
+            Debug.Log("is fish eaten");
+            //checkstate of fish
+        }
+
     }
 
     public void LookAt()
     {
         aniamtor.SetBool(lookHash, true);
+    }
+    public void IdleDown2_branch()
+    {
+        //this branch is waiting on the user to eat the fist -story part1
+        StartCoroutine("Nudge_Fish");
+        checkfish = true;
+    }
+
+    IEnumerator Nudge_Fish()
+    {
+        Debug.Log("waiting for fish to be eaten");
+        yield return new WaitForSeconds(4f);
+        aniamtor.SetTrigger(nudge_again);
+        //move_fish (crashinto player)
     }
 
     IEnumerator FishIsLost()
@@ -76,66 +98,40 @@ public class Granny_Behavior : MonoBehaviour
         aniamtor.SetBool(lookHash, false);
     }
 
+    IEnumerator Clap()
+    {
+        yield return new WaitForSeconds(2f);
+        Debug.Log("Clap");
+        fish_st = FishState.EATEN;
+        aniamtor.SetTrigger(clap_t);
+    }
+
     IEnumerator GoFish()
     {
-        yield return new WaitForSeconds(interim_time);
+        yield return new WaitForSeconds(1f);
         aniamtor.SetTrigger(gofishHash);
         grannyHunt.Play();
         fish_st = FishState.CAUGHT;
     }
-
-    IEnumerator GiveFish()
+    IEnumerator Wave()
     {
-        givefishCount++;
-        yield return new WaitForSeconds(interim_time);
-        grannyBreath.Play();
-        grannyBubbleSound.Play();
-        theFishModel.SetActive(true);  // to make the fish appear
-        if (fish_st == FishState.FLOATING)
-            StartCoroutine("NudgeFish");
-        if (fish_st == FishState.LOST)
-            StartCoroutine("GoFish");
-        if (fish_st == FishState.EATEN)
-            Debug.Log("Celebration");
-        aniamtor.SetTrigger(fishHash);
-        fish_st = FishState.FLOATING;
-    }
-
-    IEnumerator NudgeFish()
-    {
-        yield return new WaitForSeconds(interim_time);
-
-        if (fish_st == FishState.LOST)
-            StartCoroutine("GoFish");
-        if (fish_st == FishState.EATEN)
-            Debug.Log("Celebration");
-        if (fish_st == FishState.CAUGHT)
-            StartCoroutine("GiveFish");
-
-        aniamtor.SetTrigger(nudge_trigger);
-
+        yield return new WaitForSeconds(3f);
+        aniamtor.SetTrigger(wave);
+        grannyCallUser.Play();
+        StartCoroutine("GoFish");
     }
 
     public void SwimOver()
     {
         isforward = true;
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (isforward)
-        {
-            Debug.Log("colided" + other.name);
-            isforward = false;
-            grannyBreath.Play();
-            grannyBubbleSound.Play();
-            StartCoroutine("GoFish");
-        }
+        Debug.Log("forward");
+        grannyBreath.Play();
+        grannyBubbleSound.Play();
+        StartCoroutine("Wave");
     }
 
     public void EatenAndCelebration()
     {
-        theFishModel.SetActive(false);
         celebration.Play();
         fireworks.Play();
     }

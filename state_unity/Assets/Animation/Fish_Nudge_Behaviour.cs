@@ -19,7 +19,8 @@ public class Fish_Nudge_Behaviour : StateMachineBehaviour {
     {
         int nudge_trigger = Animator.StringToHash("nudge_trigger");
         animator.ResetTrigger(nudge_trigger);
-        animator.gameObject.GetComponent<Granny_Behavior>().StartCoroutine("FishIsLost");
+        //animator.gameObject.GetComponent<Granny_Behavior>().StartCoroutine("FishIsLost");
+        //animator.gameObject.GetComponent<Granny_Behavior>().StartCoroutine("Clap");
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove(). Code that processes and affects root motion should be implemented here
