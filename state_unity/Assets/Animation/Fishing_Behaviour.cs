@@ -21,7 +21,6 @@ public class Fishing_Behaviour : StateMachineBehaviour {
     {
         int gofishHash = Animator.StringToHash("fish_trigger");
         animator.ResetTrigger(gofishHash);
-        animator.gameObject.GetComponent<Granny_Behavior>().StartCoroutine("GiveFish");
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove(). Code that processes and affects root motion should be implemented here

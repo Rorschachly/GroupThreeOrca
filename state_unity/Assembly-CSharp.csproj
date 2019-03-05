@@ -61,15 +61,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Animation\Eat_Fish_Behaviour.cs" />
+    <Compile Include="Assets\Animation\Eat_Fish2_Behaviour.cs" />
     <Compile Include="Assets\Animation\Fish_Nudge_Behaviour.cs" />
     <Compile Include="Assets\Animation\Fishing_Behaviour.cs" />
     <Compile Include="Assets\Animation\Give_Fish_Behaviour.cs" />
+    <Compile Include="Assets\Animation\IdleDown2.cs" />
     <Compile Include="Assets\BigMeme\audioManager.cs" />
     <Compile Include="Assets\BigMeme\CameraRotation.cs" />
     <Compile Include="Assets\BigMeme\CoinManager.cs" />
     <Compile Include="Assets\BigMeme\CoinPickup.cs" />
-    <Compile Include="Assets\Eat_Fish2_Behaviour.cs" />
     <Compile Include="Assets\Oculus\VR\Scripts\Composition\OVRCameraComposition.cs" />
     <Compile Include="Assets\Oculus\VR\Scripts\Composition\OVRComposition.cs" />
     <Compile Include="Assets\Oculus\VR\Scripts\Composition\OVRCompositionUtil.cs" />
