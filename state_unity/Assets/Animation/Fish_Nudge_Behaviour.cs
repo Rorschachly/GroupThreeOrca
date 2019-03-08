@@ -4,22 +4,25 @@ using UnityEngine;
 
 public class Fish_Nudge_Behaviour : StateMachineBehaviour {
 
+    float starttime;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        starttime = Time.time;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
-    //override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-    //
-    //}
+    override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        if ((Time.time - starttime) > 4f)
+            animator.GetComponent<Granny_Behavior>().pushfish(2);
+    }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        int nudge_trigger = Animator.StringToHash("nudge_trigger");
-        animator.ResetTrigger(nudge_trigger);
-        animator.gameObject.GetComponent<Granny_Behavior>().StartCoroutine("FishIsLost");
+        //animator.gameObject.GetComponent<Granny_Behavior>().StartCoroutine("FishIsLost");
+        //animator.gameObject.GetComponent<Granny_Behavior>().StartCoroutine("Clap");
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove(). Code that processes and affects root motion should be implemented here

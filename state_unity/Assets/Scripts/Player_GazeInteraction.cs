@@ -11,6 +11,7 @@ public class Player_GazeInteraction : MonoBehaviour {
     [SerializeField] private LayerMask m_IntercatibleLayers;           // Layers to exclude from the raycast.
     [SerializeField] private float m_RayLength = 500f;                  // How far into the scene the ray is cast.
     [SerializeField] private Transform granny;
+    [SerializeField] private Transform granny_endpt;
    
     bool haslooked = false, isRotate = false;
     private VRInteractiveItem m_CurrentInteractible;                //The current interactive item
@@ -34,6 +35,9 @@ public class Player_GazeInteraction : MonoBehaviour {
 
     public void GazeIntercation()
     {
+        Transform curennt = granny.transform;
+        granny.transform.position = Vector3.Lerp(curennt.position, granny_endpt.position, Time.deltaTime * 0.3f);
+        
         if (m_ShowDebugRay)
         {
             Debug.DrawRay(m_Camera.position, m_Camera.forward * 50f, Color.green, 1f);
