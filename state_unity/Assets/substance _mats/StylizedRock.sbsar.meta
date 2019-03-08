@@ -31,22 +31,24 @@ ScriptedImporter:
     preset: " <sbspreset pkgurl=\"pkg://StylizedRock\" label=\"\" >\n  <presetinput
       identifier=\"$outputsize\" uid=\"2184748917\" type=\"8\" value=\"10,10\" />\n
       \ <presetinput identifier=\"General_Base_color\" uid=\"4075186257\" type=\"3\"
-      value=\"0.462264,0.329254,0.329254,1\" />\n  <presetinput identifier=\"edge_highlight\"
-      uid=\"4045165041\" type=\"0\" value=\"1.56\" />\n  <presetinput identifier=\"General_Hide_tertiary_layer\"
-      uid=\"4075239502\" type=\"4\" value=\"1\" />\n  <presetinput identifier=\"General_Tiling\"
-      uid=\"4075239496\" type=\"4\" value=\"5\" />\n  <presetinput identifier=\"General_Height_Variation\"
-      uid=\"4075239498\" type=\"0\" value=\"0.691\" />\n  <presetinput identifier=\"General_Size_Variation\"
-      uid=\"4075239860\" type=\"0\" value=\"0.75\" />\n  <presetinput identifier=\"General_Rotation_Variation\"
-      uid=\"4075239862\" type=\"0\" value=\"143\" />\n  <presetinput identifier=\"moss_use_normal_channel\"
-      uid=\"4045337922\" type=\"4\" value=\"1\" />\n  <presetinput identifier=\"moss_normal_range\"
-      uid=\"4045325445\" type=\"0\" value=\"0.446\" />\n  <presetinput identifier=\"moss_normal_softness\"
-      uid=\"4045324639\" type=\"0\" value=\"0.757\" />\n  <presetinput identifier=\"Moss_Moss_Density\"
-      uid=\"4075227409\" type=\"0\" value=\"0.809\" />\n  <presetinput identifier=\"Snow_Use_normal_channel\"
+      value=\"0.273585,0.112273,0.112273,1\" />\n  <presetinput identifier=\"edge_highlight\"
+      uid=\"4045165041\" type=\"0\" value=\"0\" />\n  <presetinput identifier=\"General_Tiling\"
+      uid=\"4075239496\" type=\"4\" value=\"1\" />\n  <presetinput identifier=\"General_Height_Variation\"
+      uid=\"4075239498\" type=\"0\" value=\"0.472\" />\n  <presetinput identifier=\"General_Size_Variation\"
+      uid=\"4075239860\" type=\"0\" value=\"0.394\" />\n  <presetinput identifier=\"General_Rotation_Variation\"
+      uid=\"4075239862\" type=\"0\" value=\"122\" />\n  <presetinput identifier=\"General_Breakup_size\"
+      uid=\"4075239868\" type=\"4\" value=\"28\" />\n  <presetinput identifier=\"General_Breakup_masking\"
+      uid=\"4075239870\" type=\"0\" value=\"0.683\" />\n  <presetinput identifier=\"General_Breakup_offset\"
+      uid=\"4075239864\" type=\"1\" value=\"0.246,0.5\" />\n  <presetinput identifier=\"moss_use_normal_channel\"
+      uid=\"4045337922\" type=\"4\" value=\"1\" />\n  <presetinput identifier=\"moss_normal_channel\"
+      uid=\"4045339338\" type=\"2\" value=\"1,0,0.015686\" />\n  <presetinput identifier=\"moss_normal_range\"
+      uid=\"4045325445\" type=\"0\" value=\"1\" />\n  <presetinput identifier=\"Moss_Moss_Density\"
+      uid=\"4075227409\" type=\"0\" value=\"0.599\" />\n  <presetinput identifier=\"Snow_Use_normal_channel\"
       uid=\"4075330900\" type=\"4\" value=\"0\" />\n  <presetinput identifier=\"Snow_Mask_Contrast\"
       uid=\"4075330910\" type=\"0\" value=\"0\" />\n  <presetinput identifier=\"Snow_Thickness\"
       uid=\"4075330904\" type=\"0\" value=\"0\" />\n </sbspreset>\n"
     shaderName: LightweightPipeline/Standard (Physically Based)
-    outputNames: height,baseColor,normal
+    outputNames: 
     texturePackingList:
     - outputName: height
       alphaSource: height
