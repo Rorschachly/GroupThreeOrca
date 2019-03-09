@@ -64,6 +64,7 @@ public class Player_GazeInteraction : MonoBehaviour {
 
             if (hit.collider.name == granny.name)
             {
+                Debug.Log("hit");
                 if (!haslooked)
                 {
                     haslooked = true;
