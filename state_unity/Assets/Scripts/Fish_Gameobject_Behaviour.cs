@@ -29,7 +29,7 @@ public class Fish_Gameobject_Behaviour : MonoBehaviour {
         }
         if (ismoveforward)
         {
-            transform.position = Vector3.Lerp(transform.position, pos2.position, Time.deltaTime * 2f);
+            transform.position = Vector3.Lerp(transform.position, pos2.position, Time.deltaTime);
             if (transform.position == pos2.position)
                 ismoveforward = false;
         }

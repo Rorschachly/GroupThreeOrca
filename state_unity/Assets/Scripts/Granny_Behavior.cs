@@ -69,6 +69,7 @@ public class Granny_Behavior : MonoBehaviour
         round_fish.SetActive(false);
         will_fish.SetActive(false);
         fish_st = FishState.EATEN;
+        fishbones_burp();
         aniamtor.SetTrigger(correct_fish);
     }
 

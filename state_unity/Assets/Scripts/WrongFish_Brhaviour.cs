@@ -6,9 +6,11 @@ public class WrongFish_Brhaviour : MonoBehaviour {
 
     // Use this for initialization
     bool startdissolve = false, expand = false;
+    public Material mat;
     float dissolve_value;
 
     void Start () {
+        mat.SetFloat(Shader.PropertyToID("Vector1_B597625B"), -1f);
         dissolve_value = 0;
     }
 	
@@ -18,24 +20,37 @@ public class WrongFish_Brhaviour : MonoBehaviour {
         {
             expand = false;
             transform.localScale = Vector3.one;
-            gameObject.GetComponent<Material>().SetFloat(Shader.PropertyToID("Vector1_B597625B"), dissolve_value);
-            dissolve_value += 0.1f;
+            dissolve_value += 0.01f;
+            mat.SetFloat(Shader.PropertyToID("Vector1_B597625B"), dissolve_value);
+
             if (dissolve_value > 1.5f)
+            {
                 startdissolve = false;
+                gameObject.SetActive(false);
+            }
         }
         if (expand)
-                transform.localScale += new Vector3(0.03f,0.03f,0.03f);
+                transform.localScale += new Vector3(0.01f,0.01f,0.01f);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        StartCoroutine("dissolve");
-        expand = true;
+        if (other.gameObject.CompareTag("PlayerLeftHand") || other.gameObject.CompareTag("PlayerRightHand"))
+        {
+            StartCoroutine("dissolve");
+            expand = true;
+        }
     }
+
+    //public void OnCollisionEnter(Collision collision)
+    //{
+    //    StartCoroutine("dissolve");
+    //    expand = true;
+    //}
 
     IEnumerator dissolve()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(0.75f);
         startdissolve = true;
     }
 }

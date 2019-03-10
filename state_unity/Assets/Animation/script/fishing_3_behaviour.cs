@@ -21,11 +21,12 @@ public class fishing_3_behaviour : StateMachineBehaviour {
         {
             callonce = true;
             animator.GetComponent<Granny_Behavior>().showSalmon3();
+           
         }
 
-        if((Time.time - starttime) > 11.10 && callonce)
+        if((Time.time - starttime) > 10.50 && callonce)
         {
-            animator.GetComponent<Granny_Behavior>().hidefish();
+             animator.GetComponent<Granny_Behavior>().hidefish();
             animator.GetComponent<Granny_Behavior>().showRound();
             animator.GetComponent<Granny_Behavior>().showWill();
         }

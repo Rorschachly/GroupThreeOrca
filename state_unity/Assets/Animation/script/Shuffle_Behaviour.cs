@@ -10,14 +10,15 @@ public class Shuffle_Behaviour : StateMachineBehaviour {
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         starttime = Time.time;
+        animator.GetComponent<Granny_Behavior>().playparticles();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if ((Time.time - starttime) > 1.5f && !callonce)
+        if ((Time.time - starttime) > 1.1f && !callonce)
         {
-            animator.GetComponent<Granny_Behavior>().playparticles();
+            
             animator.GetComponent<Granny_Behavior>().pushfish(3);
             animator.GetComponent<Granny_Behavior>().pushfish(4);
             animator.GetComponent<Granny_Behavior>().pushfish(5);
