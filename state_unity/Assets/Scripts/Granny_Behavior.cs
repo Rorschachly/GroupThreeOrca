@@ -10,7 +10,7 @@ public class Granny_Behavior : MonoBehaviour
     // Use this for initialization
     public static FishState fish_st = FishState.CAUGHT;
 
-    public GameObject salmon, salmon_2, salmon_3, round_fish, will_fish, fishbones, heart;
+    public GameObject salmon, salmon_2, salmon_3, round_fish, will_fish, fishbones, heart, pod, grannydouble;
     public Transform cm, fishpos;
     public ParticleSystem shuffleParticleLauncher;
 
@@ -25,16 +25,13 @@ public class Granny_Behavior : MonoBehaviour
 
 
     Animator aniamtor;
-    readonly int lookHash = Animator.StringToHash("lookat");
-    readonly int endloonkHash = Animator.StringToHash("look_end");
     readonly int gofishHash = Animator.StringToHash("fish_trigger");
     readonly int wave = Animator.StringToHash("sayHi_trigger");
     readonly int clap_t = Animator.StringToHash("clap_trigger");
-    readonly int nudge_again = Animator.StringToHash("nudge_fish_trigger");
+    readonly int moveme = Animator.StringToHash("moveme");
     readonly int correct_fish = Animator.StringToHash("correct");
     float interim_time;
     bool isforward = false, checkfish = false;
-    int givefishCount = 0;
     void Start()
     {
         aniamtor = GetComponent<Animator>();
@@ -62,57 +59,55 @@ public class Granny_Behavior : MonoBehaviour
             Debug.Log("is fish eaten");
             //checkstate of fish
         }
-
     }
 
-    public void LookAt()
-    {
-        aniamtor.SetBool(lookHash, true);
-    }
-    public void IdleDown2_branch()
-    {
-        //this branch is waiting on the user to eat the fist -story part1
-        StartCoroutine("Nudge_Fish");
-        checkfish = true;
-    }
+    //public void LookAt()
+    //{
+    //    aniamtor.SetBool(lookHash, true);
+    //}
+    //public void IdleDown2_branch()
+    //{
+    //    //this branch is waiting on the user to eat the fist -story part1
+    //    StartCoroutine("Nudge_Fish");
+    //    checkfish = true;
+    //}
 
-    IEnumerator Nudge_Fish()
-    {
-        Debug.Log("waiting for fish to be eaten");
-        yield return new WaitForSeconds(4f);
-        aniamtor.SetTrigger(nudge_again);
-        //move_fish (crashinto player)
-    }
+    //IEnumerator Nudge_Fish()
+    //{
+    //    Debug.Log("waiting for fish to be eaten");
+    //    yield return new WaitForSeconds(4f);
+    //    aniamtor.SetTrigger(nudge_again);
+    //    //move_fish (crashinto player)
+    //}
 
-    IEnumerator FishIsLost()
-    {
-        yield return new WaitForSeconds(interim_time + 2f);
-        Debug.Log("fish is lost");
-        fish_st = FishState.LOST;
-        StartCoroutine("GoFish");
-    }
+    //IEnumerator FishIsLost()
+    //{
+    //    yield return new WaitForSeconds(interim_time + 2f);
+    //    Debug.Log("fish is lost");
+    //    fish_st = FishState.LOST;
+    //    StartCoroutine("GoFish");
+    //}
 
-    public void LookAway()
-    {
-        aniamtor.SetTrigger(endloonkHash);
-        grannyCallUser.Play();
-        aniamtor.SetBool(lookHash, false);
-    }
+    //public void LookAway()
+    //{
+    //    aniamtor.SetTrigger(endloonkHash);
+    //    grannyCallUser.Play();
+    //    aniamtor.SetBool(lookHash, false);
+    //}
 
-    IEnumerator Clap()
-    {
-        yield return new WaitForSeconds(2f);
-        salmon_2.SetActive(false);
-        Debug.Log("Clap");
-        fish_st = FishState.EATEN;
-        aniamtor.SetTrigger(clap_t);
-    }
+    //IEnumerator Clap()
+    //{
+    //    yield return new WaitForSeconds(2f);
+    //    salmon_2.SetActive(false);
+    //    fish_st = FishState.EATEN;
+    //    aniamtor.SetTrigger(clap_t);
+    //}
 
     public void Clap2()
     {
         salmon_2.SetActive(false);
-        Debug.Log("Clap");
         fish_st = FishState.EATEN;
+        Debug.Log("fish eaten here!!!!");
         aniamtor.SetTrigger(clap_t);
     }
 
@@ -121,28 +116,26 @@ public class Granny_Behavior : MonoBehaviour
         salmon_3.SetActive(false);
         round_fish.SetActive(false);
         will_fish.SetActive(false);
-        Debug.Log("Clap");
         fish_st = FishState.EATEN;
         aniamtor.SetTrigger(correct_fish);
     }
 
-    public void ChooseCorrect()
-    {
-        aniamtor.SetTrigger(correct_fish);
-    }
-
+    //public void ChooseCorrect()
+    //{
+    //    aniamtor.SetTrigger(correct_fish);
+    //}
 
 
     IEnumerator GoFish()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.35f);
         aniamtor.SetTrigger(gofishHash);
         grannyHunt.Play();
         fish_st = FishState.CAUGHT;
     }
     IEnumerator Wave()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1.5f);
         aniamtor.SetTrigger(wave);
         grannyCallUser.Play();
         StartCoroutine("GoFish");
@@ -159,8 +152,17 @@ public class Granny_Behavior : MonoBehaviour
 
     public void playheart()
     {
-        heart.SetActive(true);
+        //heart.SetActive(true);
         //gameObject.SetActive(false);
+    }
+
+    public void playpod()
+    {
+        pod.SetActive(true);
+        grannydouble.transform.position = gameObject.transform.position;
+        grannydouble.transform.rotation = gameObject.transform.rotation;
+        gameObject.SetActive(false);
+        grannydouble.SetActive(true);
     }
     /****************
         PARTICLES

@@ -16,7 +16,7 @@ public class WrongFish_Brhaviour : MonoBehaviour {
 	void Update () {
         if(startdissolve)
         {
-            gameObject.GetComponent<Material>().SetFloat(Shader.PropertyToID("Vector1_B597625B"), dissolve_value);
+            //gameObject.GetComponent<Material>().SetFloat(Shader.PropertyToID("Vector1_B597625B"), dissolve_value);
             dissolve_value += 0.1f;
             if (dissolve_value > 1.5f)
                 startdissolve = false;

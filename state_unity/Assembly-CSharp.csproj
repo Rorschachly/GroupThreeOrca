@@ -77,6 +77,7 @@
     <Compile Include="Assets\BigMeme\CoinPickup.cs" />
     <Compile Include="Assets\CallPod.cs" />
     <Compile Include="Assets\CelebratePathChoice.cs" />
+    <Compile Include="Assets\moveaside_behaviour.cs" />
     <Compile Include="Assets\Oculus\VR\Scripts\Composition\OVRCameraComposition.cs" />
     <Compile Include="Assets\Oculus\VR\Scripts\Composition\OVRComposition.cs" />
     <Compile Include="Assets\Oculus\VR\Scripts\Composition\OVRCompositionUtil.cs" />
@@ -132,6 +133,7 @@
     <Compile Include="Assets\Scripts\Fishbones_behaviour.cs" />
     <Compile Include="Assets\Scripts\GrabScript.cs" />
     <Compile Include="Assets\Scripts\Granny_Behavior.cs" />
+    <Compile Include="Assets\Scripts\granny_doublebehaviour.cs" />
     <Compile Include="Assets\Scripts\Interactable.cs" />
     <Compile Include="Assets\Scripts\more_scripts\addflares.cs" />
     <Compile Include="Assets\Scripts\more_scripts\Interactor.cs" />

@@ -18,6 +18,7 @@ public class CallPod : StateMachineBehaviour {
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         animator.GetComponent<Granny_Behavior>().playheart();
+        animator.GetComponent<Granny_Behavior>().playpod();
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove(). Code that processes and affects root motion should be implemented here
