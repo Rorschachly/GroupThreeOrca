@@ -10,10 +10,12 @@ public class Fish_Gameobject_Behaviour : MonoBehaviour {
     Animator aniamtor;
     bool movedown = false, ismoveforward = false;
     public Transform pos, pos2; //pos2 ued by salmon 2&3
+    Quaternion rot;
 
     // Use this for initialization
     void Start () {
         aniamtor = GetComponent<Animator>();
+        rot = new Quaternion(0,1.2f, 0, 0);
 	}
 	
 	// Update is called once per frame
@@ -21,12 +23,13 @@ public class Fish_Gameobject_Behaviour : MonoBehaviour {
         if (movedown)
         {
             transform.position = Vector3.Lerp(transform.position, pos.position, Time.deltaTime * 0.4f);
+            transform.rotation = Quaternion.Lerp(transform.rotation, rot, 0.4f * Time.deltaTime);
             if (transform.position == pos.position)
                 movedown = false;
         }
         if (ismoveforward)
         {
-            transform.position = Vector3.Lerp(transform.position, pos2.position, Time.deltaTime * 1.1f);
+            transform.position = Vector3.Lerp(transform.position, pos2.position, Time.deltaTime * 2f);
             if (transform.position == pos2.position)
                 ismoveforward = false;
         }

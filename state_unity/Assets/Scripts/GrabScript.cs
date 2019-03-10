@@ -2,30 +2,46 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GrabScript : MonoBehaviour {
+public class GrabScript : MonoBehaviour
+{
 
     private bool rightHandtouched = false;
     private bool leftHandtouched = false;
-    public GameObject rightHandDisable;
+    public GameObject rightHandDisable, granny;
     public GameObject leftHandDisable;
     private Collider rightHand;
     private Collider leftHand;
+    GameObject fish;
 
     public Transform leftholder, rightholder;
-	// Use this for initialization
-	void Start () {
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    // Use this for initialization
+    void Start()
+    {
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
         if (rightHandtouched)
         {
             stickOnToFlipper(rightHand);
-        } else if (leftHandtouched)
+            celebrate();
+        }
+        else if (leftHandtouched)
         {
             stickOnToFlipper(leftHand);
+            celebrate();
         }
-	}
+    }
+    public void celebrate()
+    {
+        granny.GetComponent<Granny_Behavior>().chewing.Play();
+        granny.GetComponent<Granny_Behavior>().EatenAndCelebration();
+        if (gameObject.CompareTag("Salmon3"))
+            granny.GetComponent<Granny_Behavior>().Clap3();
+        else if (gameObject.CompareTag("Fish"))
+            granny.GetComponent<Granny_Behavior>().Clap2();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -36,7 +52,8 @@ public class GrabScript : MonoBehaviour {
             rightHandtouched = false;
             leftHand = other;
             rightHandDisable.tag = "Player";
-        } else if (other.gameObject.CompareTag("PlayerRightHand"))
+        }
+        else if (other.gameObject.CompareTag("PlayerRightHand"))
         {
             Debug.Log("Right Hand touched");
             rightHandtouched = true;
@@ -52,7 +69,8 @@ public class GrabScript : MonoBehaviour {
         {
             rightHandtouched = false;
             leftHandDisable.tag = "PlayerLeftHand";
-        } else if (other.gameObject.CompareTag("PlayerLeftHand"))
+        }
+        else if (other.gameObject.CompareTag("PlayerLeftHand"))
         {
             leftHandtouched = false;
             rightHandDisable.tag = "PlayerRightHand";

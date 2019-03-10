@@ -61,23 +61,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Animation\Bones_Burp_Behaviour.cs" />
-    <Compile Include="Assets\Animation\Eat_Fish2_Behaviour.cs" />
-    <Compile Include="Assets\Animation\Fish_Nudge_Behaviour.cs" />
-    <Compile Include="Assets\Animation\fishing_3_behaviour.cs" />
-    <Compile Include="Assets\Animation\Fishing_Behaviour.cs" />
-    <Compile Include="Assets\Animation\Give_3_behaviour.cs" />
-    <Compile Include="Assets\Animation\Give_Fish_Behaviour.cs" />
-    <Compile Include="Assets\Animation\IdleDown2.cs" />
-    <Compile Include="Assets\Animation\Shuffle_Behaviour.cs" />
-    <Compile Include="Assets\Animation\Threecups_behaviour.cs" />
+    <Compile Include="Assets\Animation\script\Bones_Burp_Behaviour.cs" />
+    <Compile Include="Assets\Animation\script\CallPod.cs" />
+    <Compile Include="Assets\Animation\script\Eat_Fish2_Behaviour.cs" />
+    <Compile Include="Assets\Animation\script\Fish_Nudge_Behaviour.cs" />
+    <Compile Include="Assets\Animation\script\fishing_3_behaviour.cs" />
+    <Compile Include="Assets\Animation\script\Fishing_Behaviour.cs" />
+    <Compile Include="Assets\Animation\script\Give_3_behaviour.cs" />
+    <Compile Include="Assets\Animation\script\Give_Fish_Behaviour.cs" />
+    <Compile Include="Assets\Animation\script\IdleDown2.cs" />
+    <Compile Include="Assets\Animation\script\Shuffle_Behaviour.cs" />
+    <Compile Include="Assets\Animation\script\Threecups_behaviour.cs" />
     <Compile Include="Assets\BigMeme\audioManager.cs" />
     <Compile Include="Assets\BigMeme\CameraRotation.cs" />
     <Compile Include="Assets\BigMeme\CoinManager.cs" />
     <Compile Include="Assets\BigMeme\CoinPickup.cs" />
-    <Compile Include="Assets\CallPod.cs" />
-    <Compile Include="Assets\CelebratePathChoice.cs" />
-    <Compile Include="Assets\moveaside_behaviour.cs" />
     <Compile Include="Assets\Oculus\VR\Scripts\Composition\OVRCameraComposition.cs" />
     <Compile Include="Assets\Oculus\VR\Scripts\Composition\OVRComposition.cs" />
     <Compile Include="Assets\Oculus\VR\Scripts\Composition\OVRCompositionUtil.cs" />
@@ -143,6 +141,7 @@
     <Compile Include="Assets\Scripts\more_scripts\Rotator.cs" />
     <Compile Include="Assets\Scripts\Player_GazeInteraction.cs" />
     <Compile Include="Assets\Scripts\Player_Interaction_KeyBoard.cs" />
+    <Compile Include="Assets\Scripts\raytrace_slippers.cs" />
     <Compile Include="Assets\Scripts\Sample_VRScripts\ExampleInteractiveItem.cs" />
     <Compile Include="Assets\Scripts\Sample_VRScripts\Reticle.cs" />
     <Compile Include="Assets\Scripts\Sample_VRScripts\VRDeviceManager.cs" />
@@ -152,6 +151,7 @@
     <Compile Include="Assets\Scripts\Sample_VRScripts\VRInteractiveItem.cs" />
     <Compile Include="Assets\Scripts\Sample_VRScripts\VRTrackingReset.cs" />
     <Compile Include="Assets\Scripts\SetCorrectCameraHeight.cs" />
+    <Compile Include="Assets\Scripts\ShowSalmon_behaviour.cs" />
     <Compile Include="Assets\Scripts\WrongFish_Brhaviour.cs" />
     <None Include="Assets\Oculus\VR\Resources\OVRMRUnlitTransparent.shader" />
     <None Include="Assets\Oculus\VR\Resources\OVRMRChromaKey.cginc" />
@@ -160,7 +160,6 @@
     <None Include="Assets\Oculus\VR\Resources\OVRMRUnlit.shader" />
     <None Include="Assets\Oculus\VR\Shaders\Unlit Crosshair.shader" />
     <None Include="Assets\Oculus\VR\Resources\Unlit Transparent Color.shader" />
-    <None Include="Assets\Allegorithmic\Plugins\engine_build_info.txt" />
     <None Include="Assets\Oculus\VR\Resources\OVRMRCameraFrameLit.shader" />
     <None Include="Assets\Oculus\VR\Resources\Underlay Transparent Occluder.shader" />
     <None Include="Assets\Oculus\VR\Resources\Texture2D Blit.shader" />
@@ -168,7 +167,6 @@
     <None Include="Assets\Shaders\Skybox Shaders\Horizon With Sun Skybox.shader" />
     <None Include="Assets\Oculus\VR\Resources\OVRMRCameraFrame.shader" />
     <None Include="Assets\Oculus\VR\Resources\OVRMRClipPlane.shader" />
-    <None Include="Assets\Allegorithmic\Plugins\EULA.txt" />
     <None Include="Assets\Oculus\VR\Resources\Underlay Impostor.shader" />
     <None Include="Assets\Oculus\VR\Plugins\placeholder.txt" />
     <Reference Include="com.unity.render-pipelines.core.Editor">

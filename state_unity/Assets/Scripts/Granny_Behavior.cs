@@ -10,8 +10,8 @@ public class Granny_Behavior : MonoBehaviour
     // Use this for initialization
     public static FishState fish_st = FishState.CAUGHT;
 
-    public GameObject salmon, salmon_2, salmon_3, round_fish, will_fish, fishbones, heart, pod, grannydouble;
-    public Transform cm, fishpos;
+    public GameObject salmon, salmon_2, salmon_3, round_fish, will_fish, fishbones, heart, pod, grannydouble, s1,s2 ,r1,w1;
+    public Transform cm, fishpos, playrfishpos;
     public ParticleSystem shuffleParticleLauncher;
 
     public ParticleSystem grannyBreath;
@@ -31,7 +31,7 @@ public class Granny_Behavior : MonoBehaviour
     readonly int moveme = Animator.StringToHash("moveme");
     readonly int correct_fish = Animator.StringToHash("correct");
     float interim_time;
-    bool isforward = false, checkfish = false;
+    bool isforward = false, isplayer = false;
     void Start()
     {
         aniamtor = GetComponent<Animator>();
@@ -53,61 +53,13 @@ public class Granny_Behavior : MonoBehaviour
             if (transform.position == cm.position)
                 isforward = false;
         }
-
-        if (checkfish)
-        {
-            Debug.Log("is fish eaten");
-            //checkstate of fish
-        }
     }
-
-    //public void LookAt()
-    //{
-    //    aniamtor.SetBool(lookHash, true);
-    //}
-    //public void IdleDown2_branch()
-    //{
-    //    //this branch is waiting on the user to eat the fist -story part1
-    //    StartCoroutine("Nudge_Fish");
-    //    checkfish = true;
-    //}
-
-    //IEnumerator Nudge_Fish()
-    //{
-    //    Debug.Log("waiting for fish to be eaten");
-    //    yield return new WaitForSeconds(4f);
-    //    aniamtor.SetTrigger(nudge_again);
-    //    //move_fish (crashinto player)
-    //}
-
-    //IEnumerator FishIsLost()
-    //{
-    //    yield return new WaitForSeconds(interim_time + 2f);
-    //    Debug.Log("fish is lost");
-    //    fish_st = FishState.LOST;
-    //    StartCoroutine("GoFish");
-    //}
-
-    //public void LookAway()
-    //{
-    //    aniamtor.SetTrigger(endloonkHash);
-    //    grannyCallUser.Play();
-    //    aniamtor.SetBool(lookHash, false);
-    //}
-
-    //IEnumerator Clap()
-    //{
-    //    yield return new WaitForSeconds(2f);
-    //    salmon_2.SetActive(false);
-    //    fish_st = FishState.EATEN;
-    //    aniamtor.SetTrigger(clap_t);
-    //}
 
     public void Clap2()
     {
         salmon_2.SetActive(false);
         fish_st = FishState.EATEN;
-        Debug.Log("fish eaten here!!!!");
+        fishbones_burp();
         aniamtor.SetTrigger(clap_t);
     }
 
@@ -120,18 +72,26 @@ public class Granny_Behavior : MonoBehaviour
         aniamtor.SetTrigger(correct_fish);
     }
 
-    //public void ChooseCorrect()
-    //{
-    //    aniamtor.SetTrigger(correct_fish);
-    //}
-
-
     IEnumerator GoFish()
     {
         yield return new WaitForSeconds(0.35f);
         aniamtor.SetTrigger(gofishHash);
         grannyHunt.Play();
         fish_st = FishState.CAUGHT;
+    }
+
+    public void showsalmon()
+    {
+        s1.SetActive(true);
+        s2.SetActive(true);
+    }
+
+    public void hidesalmon(int i)
+    {
+        if (i == 1)
+            s1.SetActive(false);
+        else if (i == 2)
+            s2.SetActive(false);
     }
     IEnumerator Wave()
     {
@@ -176,12 +136,25 @@ public class Granny_Behavior : MonoBehaviour
 
     public void playparticles()
     {
+        shuffleParticleLauncher.gameObject.SetActive(true);
         shuffleParticleLauncher.Play();
     }
 
     /**********************
          FISH SCRIPTING
     ************************/
+
+    public void seefish()
+    {
+        r1.SetActive(true);
+        w1.SetActive(true);
+    }
+
+    public void hidefish()
+    {
+        r1.SetActive(false);
+        w1.SetActive(false);
+    }
 
     public void showSalmon()
     {
@@ -196,7 +169,23 @@ public class Granny_Behavior : MonoBehaviour
 
     public void fishbones_burp()
     {
-        fishbones.GetComponent<Fishbones_behaviour>().Slideout();
+        if (!isplayer)
+        {
+            fishbones.GetComponent<Fishbones_behaviour>().Slideout();
+            isplayer = true;
+        }
+        else
+        {
+            fishbones.transform.position = playrfishpos.position;
+           // transform.localScale = Vector3.one;
+            fishbones.SetActive(true);
+            fishbones.GetComponent<Fishbones_behaviour>().Slideout();
+        }
+    }
+
+    public void fishbones_gone()
+    {
+        fishbones.SetActive(false);
     }
 
     public void showRound()

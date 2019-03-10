@@ -223,7 +223,7 @@ ModelImporter:
       name: wave
       takeName: Take 001
       firstFrame: 1
-      lastFrame: 250
+      lastFrame: 144
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
