@@ -22,15 +22,23 @@ public class Fishbones_behaviour : MonoBehaviour
     {
         if (movedown)
         {
-            transform.position = Vector3.Lerp(transform.position, pos.position, Time.deltaTime * 0.8f);
+            transform.position = Vector3.Lerp(transform.position, pos.position, Time.deltaTime * 0.6f);
+            transform.localScale = transform.localScale + new Vector3(0.01f, 0.01f, 0.01f);
             myrend.material.SetFloat(Shader.PropertyToID("Vector1_329841D5"), dissolve_value);
             dissolve_value += 0.01f;
         }
+        if (dissolve_value > 2f)
+        {
+            movedown = false;
+            dissolve_value = -1;
+           // myrend.material.SetFloat(Shader.PropertyToID("Vector1_329841D5"), -0.2f);
+            transform.localScale = Vector3.one;
+        }
     }
-
+    //keepfishbones visible
     public void Slideout()
     {
-        myrend.material.SetFloat(Shader.PropertyToID("Vector1_329841D5"), 0f);
+        myrend.material.SetFloat(Shader.PropertyToID("Vector1_329841D5"), -0.2f);
         GetComponent<ParentConstraint>().constraintActive = false;
         movedown = true;
     }

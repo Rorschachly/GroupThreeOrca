@@ -12,8 +12,9 @@ public class Player_GazeInteraction : MonoBehaviour {
     [SerializeField] private float m_RayLength = 500f;                  // How far into the scene the ray is cast.
     [SerializeField] private Transform granny;
     [SerializeField] private Transform granny_endpt;
-   
+
     bool haslooked = false, isRotate = false;
+    public static bool callonce = false;
     private VRInteractiveItem m_CurrentInteractible;                //The current interactive item
     private VRInteractiveItem m_LastInteractible;                   //The last interactive item
     public bool m_ShowDebugRay;                   // Optionally show the debug ray.
@@ -42,7 +43,7 @@ public class Player_GazeInteraction : MonoBehaviour {
         {
             Debug.DrawRay(m_Camera.position, m_Camera.forward * 50f, Color.green, 1f);
         }
-        if(isRotate)
+        if(isRotate && !callonce)
         {
             Vector3 relpos = m_Camera.position - granny.position;
             Quaternion rot = Quaternion.LookRotation(relpos);

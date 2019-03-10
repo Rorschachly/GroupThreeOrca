@@ -61,12 +61,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Allegorithmic\Plugins\Substance\Livelink\Editor\Plugins\SimpleJSON.cs" />
-    <Compile Include="Assets\Allegorithmic\Plugins\Substance\Livelink\Editor\Scripts\ItemSelectorWindow.cs" />
-    <Compile Include="Assets\Allegorithmic\Plugins\Substance\Livelink\Editor\Scripts\MaterialPropertiesManipulation.cs" />
-    <Compile Include="Assets\Allegorithmic\Plugins\Substance\Livelink\Editor\Scripts\MaterialsManipulation.cs" />
-    <Compile Include="Assets\Allegorithmic\Plugins\Substance\Livelink\Editor\Scripts\MeshLinkEditor.cs" />
-    <Compile Include="Assets\Allegorithmic\Plugins\Substance\Livelink\Editor\Scripts\ShadersInfos.cs" />
     <Compile Include="Assets\Oculus\VR\Editor\OVRBuild.cs" />
     <Compile Include="Assets\Oculus\VR\Editor\OVREngineConfigurationUpdater.cs" />
     <Compile Include="Assets\Oculus\VR\Editor\OVRLayerAttributeEditor.cs" />
@@ -360,15 +354,6 @@
     </Reference>
     <Reference Include="Substance.Game">
       <HintPath>Z:/lstst/state_unity/Assets/Allegorithmic/Plugins/Substance.Game.dll</HintPath>
-    </Reference>
-    <Reference Include="websocket-sharp">
-      <HintPath>Z:/lstst/state_unity/Assets/Allegorithmic/Plugins/Substance/Livelink/Editor/Plugins/websocket-sharp.dll</HintPath>
-    </Reference>
-    <Reference Include="Substance.Editor">
-      <HintPath>Z:/lstst/state_unity/Assets/Allegorithmic/Plugins/Substance/Substance Engine/Editor/Substance.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="SourceUnityLib">
-      <HintPath>Z:/lstst/state_unity/Assets/Allegorithmic/Plugins/Substance/Substance Source/Editor/SourceUnityLib.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.Advertisements">
       <HintPath>C:/Users/sharanya/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.8/Editor/UnityEditor.Advertisements.dll</HintPath>

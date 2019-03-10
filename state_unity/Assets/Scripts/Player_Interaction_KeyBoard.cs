@@ -25,14 +25,14 @@ public class Player_Interaction_KeyBoard : MonoBehaviour
 
     void KeyboardSetup()
     {
-        counterTime += Time.deltaTime;
-        Debug.Log(counterTime);
-        if (counterTime >= 5f)
-        {
-            XRRig.transform.LookAt(new Vector3(granny.transform.position.x, XRRig.transform.position.y,
-          granny.transform.position.z));
-            counterTime = 0f;
-        }
+        //counterTime += Time.deltaTime;
+        //Debug.Log(counterTime);
+        //if (counterTime >= 5f)
+        //{
+        //    XRRig.transform.LookAt(new Vector3(granny.transform.position.x, XRRig.transform.position.y,
+        //  granny.transform.position.z));
+        //    counterTime = 0f;
+        //}
 
         //for testing without oclus
 
@@ -49,25 +49,10 @@ public class Player_Interaction_KeyBoard : MonoBehaviour
             granny.transform.rotation = Quaternion.Lerp(cur, rot, Time.deltaTime);
         }
 
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.C))
         {
-            Debug.Log("F");
-            granny.GetComponent<Granny_Behavior>().LookAway();
-            granny.GetComponent<Granny_Behavior>().StartCoroutine("GoFish");
-        }
-
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            Debug.Log("G");
-            granny.GetComponent<Granny_Behavior>().LookAway();
-            granny.GetComponent<Granny_Behavior>().StartCoroutine("GiveFish");
-        }
-
-        if (Input.GetKeyDown(KeyCode.N))
-        {
-            Debug.Log("N");
-            granny.GetComponent<Granny_Behavior>().LookAway();
-            granny.GetComponent<Granny_Behavior>().StartCoroutine("NudgeFish");
+            int correct_fish = Animator.StringToHash("correct");
+            granny.GetComponent<Animator>().SetTrigger(correct_fish);
         }
 
     }

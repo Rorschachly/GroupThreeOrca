@@ -206,7 +206,7 @@ ModelImporter:
       name: initialShadingGroup1
     second: {fileID: 2100000, guid: 10100f081b423d340b2bf7926a206c3d, type: 2}
   materials:
-    importMaterials: 1
+    importMaterials: 0
     materialName: 0
     materialSearch: 1
     materialLocation: 1
