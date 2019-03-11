@@ -22,6 +22,8 @@ public class Fish_Nudge_Behaviour : StateMachineBehaviour {
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         animator.GetComponent<Granny_Behavior>().fishbones_gone();
+        //animator.GetComponent<GrabScript>().changeTag();
+
         //animator.gameObject.GetComponent<Granny_Behavior>().StartCoroutine("FishIsLost");
         //animator.gameObject.GetComponent<Granny_Behavior>().StartCoroutine("Clap");
     }

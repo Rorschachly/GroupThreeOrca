@@ -17,6 +17,7 @@ public class CallPod : StateMachineBehaviour {
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        animator.GetComponent<Granny_Behavior>().orcaCall.Play();
         animator.GetComponent<Granny_Behavior>().playheart();
         animator.GetComponent<Granny_Behavior>().playpod();
     }

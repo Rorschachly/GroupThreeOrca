@@ -22,6 +22,7 @@ public class Granny_Behavior : MonoBehaviour
     public AudioSource grannyBubbleSound;
     public AudioSource celebration;
     public AudioSource chewing;
+    public AudioSource orcaCall;
 
 
     Animator aniamtor;
@@ -42,6 +43,7 @@ public class Granny_Behavior : MonoBehaviour
         grannyCallUser.Stop();
         grannyBubbleSound.Stop();
         fireworks.Stop();
+        orcaCall.Stop();
     }
 
     // Update is called once per frame
@@ -113,8 +115,8 @@ public class Granny_Behavior : MonoBehaviour
 
     public void playheart()
     {
-        //heart.SetActive(true);
-        //gameObject.SetActive(false);
+        heart.SetActive(true);
+        gameObject.SetActive(false);
     }
 
     public void playpod()
