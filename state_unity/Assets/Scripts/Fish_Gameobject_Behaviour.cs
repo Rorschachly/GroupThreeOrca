@@ -24,13 +24,13 @@ public class Fish_Gameobject_Behaviour : MonoBehaviour {
         {
             transform.position = Vector3.Lerp(transform.position, pos.position, Time.deltaTime * 0.4f);
             transform.rotation = Quaternion.Lerp(transform.rotation, rot, 0.4f * Time.deltaTime);
-            if (transform.position == pos.position)
+            if (Vector3.Distance(transform.position, pos.position) < .04f)
                 movedown = false;
         }
         if (ismoveforward)
         {
-            transform.position = Vector3.Lerp(transform.position, pos2.position, Time.deltaTime);
-            if (transform.position == pos2.position)
+            transform.position = Vector3.Lerp(transform.position, pos2.position, Time.deltaTime*1.4f);
+            if (Vector3.Distance(transform.position,pos2.position) < .04f)
                 ismoveforward = false;
         }
             

@@ -10,10 +10,9 @@ public class Fishbones_behaviour : MonoBehaviour
     public Transform pos;
     bool movedown = false;
     float dissolve_value;
-    Renderer myrend;
+    public Material myrend;
     void Start()
     {
-        myrend = GetComponent<Renderer>();
         dissolve_value = -1;
     }
 
@@ -22,9 +21,9 @@ public class Fishbones_behaviour : MonoBehaviour
     {
         if (movedown)
         {
-            transform.position = Vector3.Lerp(transform.position, pos.position, Time.deltaTime * 0.6f);
+            transform.position = Vector3.Lerp(transform.position, pos.position, Time.deltaTime * 0.8f);
             transform.localScale = transform.localScale + new Vector3(0.01f, 0.01f, 0.01f);
-            myrend.material.SetFloat(Shader.PropertyToID("Vector1_329841D5"), dissolve_value);
+            myrend.SetFloat(Shader.PropertyToID("Vector1_329841D5"), dissolve_value);
             dissolve_value += 0.01f;
         }
         if (dissolve_value > 2f)
@@ -38,7 +37,7 @@ public class Fishbones_behaviour : MonoBehaviour
     //keepfishbones visible
     public void Slideout()
     {
-        myrend.material.SetFloat(Shader.PropertyToID("Vector1_329841D5"), -0.2f);
+        myrend.SetFloat(Shader.PropertyToID("Vector1_329841D5"), -0.2f);
         GetComponent<ParentConstraint>().constraintActive = false;
         movedown = true;
     }

@@ -1,6 +1,6 @@
 WindowsStandalone
 PlayerPath?
-D:/final/final_v_teleport.exe
+Z:/lstst/build_7/final_v_teleport.exe
 SceneListBegin?
 Assets/Scenes/WhaleSpaceScene.unity
 SceneListEnd?
@@ -73,7 +73,7 @@ e90403eeda069970e0b9de1533de13a6 UnityEngine.UI.dll:UnityEngine.UI.ToggleGroup
 0bc223deb7c5982ef089fcbe3c1c73da Assembly-CSharp.dll:VRStandardAssets.Utils.VREyeRaycaster
 1d06b342ac168de9dd20ce549b9f7847 com.unity.render-pipelines.core.Runtime.dll:UnityEngine.Experimental.Rendering.UI.DebugUIHandlerVector3
 50b0b141074b216c8b53b1bd467f73c9 Unity.TextMeshPro.dll:TMPro.TMP_InputField
-a0a952014f0a86ddf66430780e9d1fcf Assembly-CSharp.dll:.Granny_Behavior
+9ae7b50327c108a13508ed4d69819fef Assembly-CSharp.dll:.Granny_Behavior
 53cefe5d98cadefbab750835e70b89c0 UnityEngine.UI.dll:UnityEngine.UI.AspectRatioFitter
 486cd95c82d8305219c352c06b776e1f UnityEngine.UI.dll:UnityEngine.EventSystems.BaseInput
 da2091a04d360891450faf16cdf621f1 UnityEngine.UI.dll:UnityEngine.UI.Button
@@ -266,10 +266,11 @@ bf9092984e391e854436c93547ae117f Assembly-CSharp.dll:.OVRLint
 d0920c9de90403b30094e5d86e73733c Assembly-CSharp.dll:.CoinPickup
 d1e8ed93b5353b4bdbd86d474ab618b5 Assembly-CSharp.dll:UnityEngine.EventSystems.OVRInputModule
 e7264fa9ee3a8a07bb0d50abc40c07a0 Assembly-CSharp.dll:.OVRGrabber
+5f013fd3b2abe6e46c741e83f137010d Assembly-CSharp.dll:.startscreen
 aae9893fc05b6c8cba8317ed327be0c4 com.unity.render-pipelines.core.Runtime.dll:UnityEngine.Experimental.Rendering.UI.DebugUIHandlerUIntField
 e04611b8715e6833d2bd7010fc6be10b Unity.TextMeshPro.dll:TMPro.TMP_StyleSheet
 7e69f31239cda780255f7205b47ee1b6 Assembly-CSharp.dll:.Player_GazeInteraction
-1ad3b55dbd61545feb2f759d98828d58 Assembly-CSharp.dll:.granny_doublebehaviour
+0619bf4394f284ff03893c527d9dbce9 Assembly-CSharp.dll:.granny_doublebehaviour
 c1791db8df7a6d30dc3a3e487bced78b com.unity.postprocessing.Runtime.dll:UnityEngine.Rendering.PostProcessing.PostProcessVolume
 7c997acc7f9930bd5f16c49cff4a6b10 com.unity.render-pipelines.core.Runtime.dll:UnityEngine.Experimental.Rendering.UI.DebugUIHandlerCanvas
 7a1ff18e15d0a860ac99542974a3cbd5 com.unity.postprocessing.Runtime.dll:UnityEngine.Rendering.PostProcessing.Grain
@@ -292,4 +293,4 @@ eb565135f5b2f106ea4734c3cad2730e com.unity.render-pipelines.core.Runtime.dll:Uni
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.ShowSalmon_behaviour
 e958cc1ee46a616a6e0cde964bfe9918 com.unity.render-pipelines.core.Runtime.dll:UnityEngine.Experimental.Rendering.UI.DebugUIHandlerContainer
 aae9893fc05b6c8cba8317ed327be0c4 com.unity.render-pipelines.core.Runtime.dll:UnityEngine.Experimental.Rendering.UI.DebugUIHandlerIndirectFloatField
-1ad3b55dbd61545feb2f759d98828d58 Assembly-CSharp.dll:.Fishbones_behaviour
+487cc6a37aad072608f74e1e9510e10c Assembly-CSharp.dll:.Fishbones_behaviour

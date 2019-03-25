@@ -16,7 +16,7 @@
             "typeInfo": {
                 "fullName": "UnityEditor.ShaderGraph.Vector1ShaderProperty"
             },
-            "JSONnodeData": "{\n    \"m_Value\": 0.20000000298023225,\n    \"m_Name\": \"dissolve\",\n    \"m_GeneratePropertyBlock\": true,\n    \"m_Guid\": {\n        \"m_GuidSerialized\": \"84053031-cdec-4ee4-8825-af9a583e3d52\"\n    },\n    \"m_OverrideReferenceName\": \"\",\n    \"m_FloatType\": 1,\n    \"m_RangeValues\": {\n        \"x\": -1.0,\n        \"y\": 2.0\n    }\n}"
+            "JSONnodeData": "{\n    \"m_Value\": 0.0,\n    \"m_Name\": \"dissolve\",\n    \"m_GeneratePropertyBlock\": true,\n    \"m_Guid\": {\n        \"m_GuidSerialized\": \"84053031-cdec-4ee4-8825-af9a583e3d52\"\n    },\n    \"m_OverrideReferenceName\": \"\",\n    \"m_FloatType\": 1,\n    \"m_RangeValues\": {\n        \"x\": -1.0,\n        \"y\": 2.0\n    }\n}"
         }
     ],
     "m_GUID": {

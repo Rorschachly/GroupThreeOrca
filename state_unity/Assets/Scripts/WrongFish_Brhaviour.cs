@@ -35,7 +35,7 @@ public class WrongFish_Brhaviour : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("PlayerLeftHand") || other.gameObject.CompareTag("PlayerRightHand"))
+        if (other.gameObject.CompareTag("Player"))
         {
             StartCoroutine("dissolve");
             expand = true;

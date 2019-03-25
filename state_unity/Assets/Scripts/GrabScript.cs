@@ -22,16 +22,7 @@ public class GrabScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (rightHandtouched)
-        {
-            stickOnToFlipper(rightHand);
-            celebrate();
-        }
-        else if (leftHandtouched)
-        {
-            stickOnToFlipper(leftHand);
-            celebrate();
-        }
+        
     }
     public void celebrate()
     {
@@ -45,43 +36,48 @@ public class GrabScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("PlayerLeftHand"))
-        {
-            Debug.Log("Left Hand touched");
-            leftHandtouched = true;
-            rightHandtouched = false;
-            leftHand = other;
-            rightHandDisable.tag = "Player";
-        }
-        else if (other.gameObject.CompareTag("PlayerRightHand"))
-        {
-            Debug.Log("Right Hand touched");
-            rightHandtouched = true;
-            leftHandtouched = false;
-            rightHand = other;
-            leftHandDisable.tag = "Player";
-        }
-    }
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.CompareTag("PlayerRightHand"))
+        if (other.gameObject.CompareTag("Player"))
         {
-            rightHandtouched = false;
-            leftHandDisable.tag = "PlayerLeftHand";
-        }
-        else if (other.gameObject.CompareTag("PlayerLeftHand"))
-        {
-            leftHandtouched = false;
-            rightHandDisable.tag = "PlayerRightHand";
+            celebrate();
         }
     }
+        //if (other.gameObject.CompareTag("PlayerLeftHand"))
+        //{
+        //    Debug.Log("Left Hand touched");
+        //    leftHandtouched = true;
+        //    rightHandtouched = false;
+        //    leftHand = other;
+        //    rightHandDisable.tag = "Player";
+        //}
+        //else if (other.gameObject.CompareTag("PlayerRightHand"))
+        //{
+        //    Debug.Log("Right Hand touched");
+        //    rightHandtouched = true;
+        //    leftHandtouched = false;
+        //    rightHand = other;
+        //    leftHandDisable.tag = "Player";
+        //}
 
-    private void stickOnToFlipper(Collider whichhand)
-    {
-        if (whichhand.name == "left_flipper")
-            this.transform.position = leftholder.position;
-        else
-            this.transform.position = rightholder.position;
-    }
+    //private void OnTriggerExit(Collider other)
+    //{
+    //    if (other.gameObject.CompareTag("PlayerRightHand"))
+    //    {
+    //        rightHandtouched = false;
+    //        leftHandDisable.tag = "PlayerLeftHand";
+    //    }
+    //    else if (other.gameObject.CompareTag("PlayerLeftHand"))
+    //    {
+    //        leftHandtouched = false;
+    //        rightHandDisable.tag = "PlayerRightHand";
+    //    }
+    //}
+
+    //private void stickOnToFlipper(Collider whichhand)
+    //{
+    //    if (whichhand.name == "left_flipper")
+    //        this.transform.position = leftholder.position;
+    //    else
+    //        this.transform.position = rightholder.position;
+    //}
 }
